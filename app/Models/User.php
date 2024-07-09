@@ -12,6 +12,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const GENDER_MALE = 1;
+    const GENDER_FEMALE = 2;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -19,6 +22,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
+        'patronymic',
+        'age',
+        'address',
+        'gender',
         'email',
         'password',
     ];
@@ -42,4 +50,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public static function getGenders()
+    {
+        return [
+            self::GENDER_MALE => 'Мужской',
+            self::GENDER_FEMALE => 'Женский'
+        ];
+    }
+
+    public function getGenderTitleAttribute()
+    {
+        return self::getGenders()[$this->gender];
+    }
 }
