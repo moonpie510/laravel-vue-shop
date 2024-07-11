@@ -27,7 +27,13 @@
                     @csrf
 
                     <div class="form-group">
-                        <input type="text" name="title" class="form-control" placeholder="Наименование">
+                        <label>Выберите цвет</label>
+                        <div class="input-group my-colorpicker2 colorpicker-element" data-colorpicker-id="2">
+                            <input type="text" class="form-control" name="title" data-original-title="" title="">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-square" style="color: rgb(55, 11, 239);"></i></span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">

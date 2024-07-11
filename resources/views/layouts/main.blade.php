@@ -7,12 +7,16 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset("adminlte/plugins/fontawesome-free/css/all.min.css")}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset("adminlte/dist/css/adminlte.min.css")}}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset("adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css")}}">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="{{asset('adminlte/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}">
 
 
 </head>
@@ -146,7 +150,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                        <a href="{{route('product.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-tshirt"></i>
                             <p>Продукты</p>
                         </a>
@@ -217,6 +221,20 @@
 <script src="{{asset('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('adminlte/dist/js/adminlte.js')}}"></script>
+<!-- Select2 -->
+<script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
+<!-- bootstrap color picker -->
+<script src="{{asset('adminlte/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
+<script>
+    $('.tags').select2();
+    $('.colors').select2();
 
+    //Colorpicker
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+        $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    })
+</script>
 </body>
 </html>

@@ -47,6 +47,7 @@ class ColorController extends Controller
 
     public function delete(Color $color)
     {
+        $color->products()->detach();
         $color->delete();
         return redirect()->route('color.index');
     }

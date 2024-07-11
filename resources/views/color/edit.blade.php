@@ -28,7 +28,13 @@
                     @method('patch')
 
                     <div class="form-group">
-                        <input type="text" name="title" value="{{$color->title}}" class="form-control" placeholder="Наименование">
+                        <label>Выберите цвет</label>
+                        <div class="input-group my-colorpicker2 colorpicker-element" data-colorpicker-id="2">
+                            <input value="{{$color->title}}" type="text" class="form-control" name="title" data-original-title="" title="">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-square" style="color: {{$color->title}};"></i></span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">

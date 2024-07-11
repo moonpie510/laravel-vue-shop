@@ -10,4 +10,9 @@ class Color extends Model
     use HasFactory;
 
     protected $fillable = ['title'];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'color_products', 'color_id', 'product_id');
+    }
 }

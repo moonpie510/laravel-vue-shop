@@ -47,6 +47,10 @@
                                     <td>Наименование</td>
                                     <td>{{$color->title}}</td>
                                 </tr>
+                                <tr>
+                                    <td>Цвет</td>
+                                    <td><div style="width: 16px; height: 16px; background: {{$color->title}}"></div></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
