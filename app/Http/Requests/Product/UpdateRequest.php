@@ -22,6 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => ['required'],
             'title' => ['required', 'string'],
             'description' => ['required'],
             'content' => ['required'],
@@ -33,6 +34,7 @@ class UpdateRequest extends FormRequest
             'group_id' => ['required'],
             'tags' => ['required'],
             'colors' => ['required'],
+            'product_images' => ['nullable', 'array'],
         ];
     }
 }

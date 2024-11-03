@@ -33,6 +33,7 @@ class StoreRequest extends FormRequest
             'group_id' => ['required'],
             'tags' => ['required'],
             'colors' => ['required'],
+            'product_images' => ['nullable', 'array'],
         ];
     }
 }

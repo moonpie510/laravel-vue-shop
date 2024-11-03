@@ -10,6 +10,7 @@ use App\Models\Color;
 use App\Models\ColorProduct;
 use App\Models\Group;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\ProductTag;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -40,15 +41,30 @@ class ProductController extends Controller
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
+
+        $productImages = $data['product_images'];
         $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
 
         $tagsIds = $data['tags'];
         $colorsIds = $data['colors'];
-        unset($data['tags'], $data['colors']);
+        unset($data['tags'], $data['colors'], $data['product_images']);
 
         $product = Product::firstOrCreate($data);
         $product->tags()->attach($tagsIds);
         $product->colors()->attach($colorsIds);
+
+        foreach ($productImages as $productImage) {
+            $filePath = Storage::disk('public')->put('/images', $productImage);
+            $currentImages = ProductImage::query()->where('product_id', $product->id)->get();
+
+            if (count($currentImages) > 3) {
+                continue;
+            }
+            ProductImage::create([
+                'product_id' => $product->id,
+                'file_path' => $filePath
+            ]);
+        }
 
         return redirect()->route('product.index');
     }

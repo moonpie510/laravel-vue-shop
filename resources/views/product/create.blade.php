@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
@@ -50,7 +50,43 @@
                         <div class="input-group">
                             <div class="custom-file">
                                 <input name="preview_image" type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Выберите файд</label>
+                                <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузить</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузить</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузить</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
                             </div>
                             <div class="input-group-append">
                                 <span class="input-group-text">Загрузить</span>
@@ -68,7 +104,7 @@
                     </div>
 
                     <div class="form-group">
-                        <select name="category_id" class="form-control select2" style="width: 100%;">
+                        <select name="group_id" class="form-control select2" style="width: 100%;">
                             <option selected="selected">Выберите группу</option>
                             @foreach($groups as $group)
                                 <option value="{{$group->id}}">{{$group->title}}</option>

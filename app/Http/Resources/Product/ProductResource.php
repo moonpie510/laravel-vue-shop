@@ -28,6 +28,7 @@ class ProductResource extends JsonResource
             'count' => $this->count,
             'is_published' => $this->is_published,
             'category' => new ColorResource($this->category),
+            'product_images' => ProductImageResource::collection($this->productImages),
             'group_products' => ProductMinResource::collection($product),
         ];
     }
