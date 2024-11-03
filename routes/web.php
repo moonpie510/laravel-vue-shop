@@ -29,6 +29,16 @@ Route::group(['prefix' => 'categories'], function () {
     Route::delete('/{category}', [\App\Http\Controllers\Category\CategoryController::class, 'delete'])->name('category.delete');
 });
 
+Route::group(['prefix' => 'groups'], function () {
+    Route::get('/', [\App\Http\Controllers\Group\GroupController::class, 'index'])->name('group.index');
+    Route::get('/create', [\App\Http\Controllers\Group\GroupController::class, 'create'])->name('group.create');
+    Route::post('/', [\App\Http\Controllers\Group\GroupController::class, 'store'])->name('group.store');
+    Route::get('/{group}/edit', [\App\Http\Controllers\Group\GroupController::class, 'edit'])->name('group.edit');
+    Route::get('/{group}', [\App\Http\Controllers\Group\GroupController::class, 'show'])->name('group.show');
+    Route::patch('/{group}', [\App\Http\Controllers\Group\GroupController::class, 'update'])->name('group.update');
+    Route::delete('/{group}', [\App\Http\Controllers\Group\GroupController::class, 'delete'])->name('group.delete');
+});
+
 Route::group(['prefix' => 'tags'], function () {
     Route::get('/', [\App\Http\Controllers\Tag\TagController::class, 'index'])->name('tag.index');
     Route::get('/create', [\App\Http\Controllers\Tag\TagController::class, 'create'])->name('tag.create');
