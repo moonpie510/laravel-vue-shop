@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Filters\ProductFilter;
+use App\Http\Requests\API\IndexRequest;
 use App\Http\Requests\Category\StoreRequest;
 use App\Http\Requests\Category\UpdateRequest;
 use App\Http\Resources\Product\IndexProductResource;
@@ -12,9 +14,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(IndexRequest $request)
     {
-        $products = Product::all();
+        $data = $request->validated();
+        $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
+
+        $products = Product::filter($filter)->get();
         return IndexProductResource::collection($products);
     }
 

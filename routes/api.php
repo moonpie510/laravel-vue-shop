@@ -21,6 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/products', [ProductController::class, 'index']);
+Route::post('/products', [ProductController::class, 'index']);
 Route::get('/products/filters', FilterListController::class);
 Route::get('/products/{product}', ShowController::class);
