@@ -133,7 +133,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            <span class="brand-text font-weight-light">Магазинчик</span>
+            <span class="brand-text font-weight-light">Шестерочка</span>
         </a>
 
         <!-- Sidebar -->
@@ -159,6 +159,12 @@
                         <a href="{{route('category.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-list"></i>
                             <p>Категории</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('group.index')}}" class="nav-link">
+                            <i class="nav-icon fas fa-list"></i>
+                            <p>Группы</p>
                         </a>
                     </li>
                     <li class="nav-item">

@@ -8,6 +8,7 @@ use App\Http\Requests\Product\UpdateRequest;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\ColorProduct;
+use App\Models\Group;
 use App\Models\Product;
 use App\Models\ProductTag;
 use App\Models\Tag;
@@ -32,7 +33,8 @@ class ProductController extends Controller
         $tags = Tag::all();
         $colors = Color::all();
         $categories = Category::all();
-        return view('product.create', compact('tags', 'colors', 'categories'));
+        $groups = Group::all();
+        return view('product.create', compact('tags', 'colors', 'categories', 'groups'));
     }
 
     public function store(StoreRequest $request)
@@ -56,7 +58,8 @@ class ProductController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $colors = Color::all();
-        return view('product.edit', compact('product', 'categories', 'tags', 'colors'));
+        $groups = Group::all();
+        return view('product.edit', compact('product', 'categories', 'tags', 'colors', 'groups'));
     }
 
     public function update(UpdateRequest $request, Product $product)

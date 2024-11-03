@@ -30,6 +30,7 @@ class StoreRequest extends FormRequest
             'count' => ['required'],
             'is_published' => ['nullable'],
             'category_id' => ['required'],
+            'group_id' => ['required'],
             'tags' => ['required'],
             'colors' => ['required'],
         ];
