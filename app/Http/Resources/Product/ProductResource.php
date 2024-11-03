@@ -19,6 +19,7 @@ class ProductResource extends JsonResource
         $product = Product::query()->where('group_id', $this->group_id)->get();
 
         return [
+            'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
             'content' => $this->content,
