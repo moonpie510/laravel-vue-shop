@@ -55,9 +55,9 @@ class ProductController extends Controller
 
         foreach ($productImages as $productImage) {
             $filePath = Storage::disk('public')->put('/images', $productImage);
-            $currentImages = ProductImage::query()->where('product_id', $product->id)->get();
+            $currentImages = ProductImage::query()->where('product_id', $product->id)->count();
 
-            if (count($currentImages) > 3) {
+            if ($currentImages > 3) {
                 continue;
             }
             ProductImage::create([
